@@ -1,0 +1,45 @@
+version: '3.3'
+services:
+  site:
+    build:
+      context: .
+      dockerfile: services/site/Dockerfile
+    container_name: site
+    command: sh -c "alembic upgrade head && python3 main.py"
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - wg_bridge
+    volumes:
+      - ./documents:/site/documents
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    depends_on:
+      - psql
+
+  # admin_panel:
+  #   build:
+  #     context: .
+  #     dockerfile: services/admin_panel/Dockerfile
+  #   ports:
+  #     - "127.0.0.1:777:777"
+  #   networks:
+  #     - wg_bridge
+  #   restart: always
+  #   container_name: admin-panel
+  #   depends_on:
+  #     - psql
+
+  psql:
+    image: postgres:16.0-alpine3.18
+    container_name: psql
+    env_file:
+      - .envs/.env_db
+    networks:
+      - wg_bridge
+    restart: always
+
+networks:
+  wg_bridge:
+    external: false
