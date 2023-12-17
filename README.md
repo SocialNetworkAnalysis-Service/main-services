@@ -19,7 +19,71 @@
 - Профиль пользователя
 - Выстраивание карьерного пути на основе информации vk страницы пользователя (парсинг данных)
 
-
+### Дерево проекта
+```main-services/
+├── docker-compose.yaml
+├── documents
+├── pyproject.toml
+└── services
+    ├── admin_panel
+    │   ├── Dockerfile
+    │   ├── main.py
+    │   ├── requirements.txt
+    │   └── src
+    │       ├── config.py
+    │       ├── db
+    │       │   └── database.py
+    │       └── models
+    │           ├── users
+    │           │   ├── admin.py
+    │           │   └── model.py
+    │           └── verification_codes
+    │               ├── admin.py
+    │               └── model.py
+    ├── chat_bot
+    │   ├── Dockerfile
+    │   ├── main.py
+    │   └── requirements.txt
+    └── site_api
+        ├── alembic.ini
+        ├── Dockerfile
+        ├── main.py
+        ├── migrations
+        │   ├── env.py
+        │   ├── README
+        │   ├── script.py.mako
+        │   └── versions
+        │       └── 6ed24cdc0081_database_creation.py
+        ├── requirements.txt
+        └── src
+            ├── config_reader.py
+            ├── db
+            │   ├── database.py
+            │   └── repository.py
+            ├── dependencies.py
+            ├── essence
+            │   ├── operations
+            │   │   └── router.py
+            │   ├── users
+            │   │   ├── models.py
+            │   │   ├── repository.py
+            │   │   ├── router.py
+            │   │   ├── schemas.py
+            │   │   └── service.py
+            │   └── verification_codes
+            │       ├── models.py
+            │       ├── repository.py
+            │       ├── schemas.py
+            │       └── service.py
+            ├── models.py
+            ├── security.py
+            └── utils
+                ├── config.json
+                ├── ml_model.py
+                ├── navec_hudlit_v1_12B_500K_300d_100q.tar
+                ├── sms_api.py
+                └── vk_parser.py
+```
 
 ### Запуск API, Admin_Panel на локалке
 ```bash
