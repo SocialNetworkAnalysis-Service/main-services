@@ -5,8 +5,10 @@ import uvicorn
 from fastapi import Depends, FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from fastapi.openapi.docs import get_redoc_html, get_swagger_ui_html
 from fastapi.openapi.utils import get_openapi
+from pathlib import Path
 from starlette.middleware.sessions import SessionMiddleware
 
 from src.config_reader import config
@@ -38,11 +40,21 @@ async def openapi(username: str = Depends(get_current_username)):
     return get_openapi(title=app.title, version=app.version, routes=app.routes)
 
 
+app.mount(
+    "/static",
+    StaticFiles(directory=Path(__file__).parent.parent.absolute() / "site/src/static"),
+    name="static",
+)
+
 templates = Jinja2Templates(directory="src/templates")
 
 @app.get("/", response_class=HTMLResponse)
-async def auth_page(request: Request):
+async def main_page(request: Request):
     return templates.TemplateResponse("auth.html", {"request": request})
+
+@app.get("/chat_bot", response_class=HTMLResponse)
+async def chat_bot(request: Request):
+    return templates.TemplateResponse("chat_bot.html", {"request": request})
 
 
 async def main():

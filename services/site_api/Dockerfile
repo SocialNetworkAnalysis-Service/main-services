@@ -2,8 +2,8 @@ FROM python:3.9-slim
 
 RUN apt-get update
 
-COPY services/site /site/
-WORKDIR /site
+COPY services/site_api /site_api/
+WORKDIR /site_api
 
 RUN apt-get install -y gcc
 
@@ -11,4 +11,4 @@ RUN apt-get install -y gcc
 RUN pip3 install -r requirements.txt
 
 
-ENV PYTHONPATH="${PYTHONPATH}:/site/"
+ENV PYTHONPATH="${PYTHONPATH}:/site_api/"
