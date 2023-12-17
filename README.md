@@ -6,7 +6,7 @@
  - <b>Backend:</b> fastapi, flask, flask_admin, sqlalchemy, postgresql, alembic, docker, nginx.
  - <b>Parsing:</b> vk_api, sqlite3
  - <b>Data-Science:</b> pandas, numpy, pymorphy2, navec, sikit-learn, nltk, catboost
- - Обучанная ML модель на основе спарсенных данных пользователей соц. сети VK
+ - Обучанная ML модель на основе спарсенных данных пользователей соц. сети VK (https://colab.research.google.com/drive/140vBm5aFKM8veqIRp49eY_m5cAxSUN_h?usp=sharing)
 
 ### Сервисы
  - API (api сайта)
