@@ -1,0 +1,8 @@
+{
+  "limit": 1000,
+  "types": {
+    "chats": true,
+    "groups": true,
+    "users": true
+  }
+}

@@ -10,19 +10,31 @@ from fastapi.openapi.docs import get_redoc_html, get_swagger_ui_html
 from fastapi.openapi.utils import get_openapi
 from pathlib import Path
 from starlette.middleware.sessions import SessionMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.config_reader import config
 from src.dependencies import get_current_username
 # from src.dependencies import GetNatsJetStream, nats_jetstream_stub
 from src.essence.users.router import router as router_users
+from src.essence.operations.router import router as router_operations
 
 app = FastAPI(
-    title="SocialNetworkAnalysis-Site",
+    title="SocialNetworkAnalysis-Site-API",
     version="0.1.0",
     docs_url=None,
     redoc_url=None,
     openapi_url=None,
 )
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.add_middleware(SessionMiddleware, secret_key="123qwerty")
 
 @app.get("/docs", include_in_schema=False)
@@ -40,25 +52,10 @@ async def openapi(username: str = Depends(get_current_username)):
     return get_openapi(title=app.title, version=app.version, routes=app.routes)
 
 
-app.mount(
-    "/static",
-    StaticFiles(directory=Path(__file__).parent.parent.absolute() / "site/src/static"),
-    name="static",
-)
-
-templates = Jinja2Templates(directory="src/templates")
-
-@app.get("/", response_class=HTMLResponse)
-async def main_page(request: Request):
-    return templates.TemplateResponse("auth.html", {"request": request})
-
-@app.get("/chat_bot", response_class=HTMLResponse)
-async def chat_bot(request: Request):
-    return templates.TemplateResponse("chat_bot.html", {"request": request})
-
 
 async def main():
     app.include_router(router_users)
+    app.include_router(router_operations)
 
     # nc = await nats.connect(config.NATS_SERVER_URL)
     # js = nc.jetstream()

@@ -48,10 +48,8 @@ async def auth_by_phone(
         if await verif_codes_service.add_code(
             VerifCodeShemaAdd(phone=phone_number, verification_code=call_sent)
         ):
-            session = request.session
-            session["phone_number"] = phone_number
-          #  return {"message": "verification code sent successfully"}
-            return templates.TemplateResponse("verify_sms.html", {"request": request})
+            return {"message": "verification code sent successfully"}
+        
     else:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -63,13 +61,12 @@ async def auth_by_phone(
 @router.post("/enter_sms_code/", response_model=UserJWTResponse)
 async def verify_sms(
     sms_code: Annotated[str, Form()],
+    phone_number: Annotated[str, Form()],
     request: Request,
     users_service: Annotated[UsersService, Depends(users_service)],
     verif_codes_service: Annotated[VerifCodesService, Depends(verif_codes_service)],
 ):
-    session = request.session
-    phone_number = session.get("phone_number")
-
+    print(sms_code, phone_number)
     if await verif_codes_service.check_code(
         phone_number=phone_number, verify_code=sms_code
     ):
@@ -90,11 +87,11 @@ async def verify_sms(
             timedelta(minutes=REFRESH_TOKEN_EXPIRE_MINUTES),
         )
         return {"access_token": access_token, "refresh_token": refresh_token}
-    # raise HTTPException(
-    #     status_code=status.HTTP_400_BAD_REQUEST,
-    #     detail="sms code or phone number is not valid",
-    # )
-    return templates.TemplateResponse("verify_sms.html", {"request": request, 'error_message': 'Неверный смс-код!'})
+    raise HTTPException(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        detail="sms code or phone number is not valid",
+    )
+   # return templates.TemplateResponse("verify_sms.html", {"request": request, 'error_message': 'Неверный смс-код!'})
 
 
 # # Функция для обновления access токена с помощью refresh токена

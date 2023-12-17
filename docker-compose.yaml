@@ -7,7 +7,7 @@ services:
     container_name: site
     command: sh -c "alembic upgrade head && python3 main.py"
     ports:
-      - "127.0.0.1:8000:8000"
+      - "0.0.0.0:8000:8000"
     networks:
       - wg_bridge
     volumes:
@@ -21,7 +21,7 @@ services:
        context: .
        dockerfile: services/admin_panel/Dockerfile
      ports:
-       - "127.0.0.1:777:777"
+       - "0.0.0.0:777:777"
      networks:
        - wg_bridge
      restart: always
