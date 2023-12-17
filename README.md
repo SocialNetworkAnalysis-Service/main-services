@@ -13,7 +13,7 @@
  - Admin-Panel (admin панель для просмотра базы данных)
  - Postgresql-container (докер контейнер базы данных)
  - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
- - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot
+ - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot https://disk.yandex.ru/d/RK0LQJh4r1GQFQ
 
 ### Прицип работы сервиса
 - Сайт https://dayanadesign.ru
