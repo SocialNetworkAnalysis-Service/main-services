@@ -11,8 +11,9 @@
 ### Сервисы
  - API (api сайта)
  - Admin-Panel (admin панель для просмотра базы данных)
- - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
  - Postgresql-container (докер контейнер базы данных)
+ - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
+ - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot
    
 ### Прицип работы сервиса
 - Аутентификая/Регистрация по номеру телефона (flash call)
@@ -85,7 +86,7 @@
                 └── vk_parser.py
 ```
 
-### Запуск API, Admin_Panel на локалке
+### Запуск API, Admin_Panel, ChatBot (карьерный бот) на локалке
 ```bash
 git clone https://github.com/SocialNetworkAnalysis-Service/main-services.git
 cd main-services/
