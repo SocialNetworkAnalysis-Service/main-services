@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: services/site_api/Dockerfile
-    container_name: site
+    container_name: site_api
     command: sh -c "alembic upgrade head && python3 main.py"
     ports:
       - "0.0.0.0:8000:8000"
