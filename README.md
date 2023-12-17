@@ -14,11 +14,17 @@
  - Postgresql-container (докер контейнер базы данных)
  - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
  - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot
-   
+
 ### Прицип работы сервиса
 - Аутентификая/Регистрация по номеру телефона (flash call)
 - Профиль пользователя
-- Выстраивание карьерного пути на основе информации vk страницы пользователя (парсинг данных)
+- Выстраивание карьерного пути на основе информации VK страницы пользователя (парсинг данных)
+- Тестирование для определения приверженности к определенным типам профессиий
+
+### Спарсенные данные
+
+
+
 
 ### Дерево проекта
 ```main-services/
@@ -86,6 +92,10 @@
                 └── vk_parser.py
 ```
 
+### Схема Базы Данных
+![SayraxPrint (1)](https://github.com/SocialNetworkAnalysis-Service/main-services/assets/65904112/90f4db55-b42d-4689-9423-d5ada9a7a97d)
+
+
 ### Запуск API, Admin_Panel, ChatBot (карьерный бот) на локалке
 ```bash
 git clone https://github.com/SocialNetworkAnalysis-Service/main-services.git
@@ -93,3 +103,6 @@ cd main-services/
 docker-compose up -d
 ```
 <img width="1002" alt="image" src="https://github.com/SocialNetworkAnalysis-Service/main-services/assets/65904112/112ae62b-d4fd-47f3-9879-3fbe12db6d48">
+
+
+
