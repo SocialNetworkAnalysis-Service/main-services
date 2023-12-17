@@ -2,10 +2,10 @@
 Сервис для профориентации молодёжи и выстраивания карьерного пути. 
 
 ### Технологии
- - Frontend: html, css, js
- - Backend: fastapi, flask, flask_admin, sqlalchemy, postgresql, alembic, docker, nginx.
- - Parsing: vk_api, sqlite3
- - Data-Science: pandas, numpy, pymorphy2, navec, sikit-learn, nltk, catboost
+ - <b>Frontend:</b> html, css, js
+ - <b>Backend:</b> fastapi, flask, flask_admin, sqlalchemy, postgresql, alembic, docker, nginx.
+ - <b>Parsing:</b> vk_api, sqlite3
+ - <b>Data-Science:</b> pandas, numpy, pymorphy2, navec, sikit-learn, nltk, catboost
  - Обучанная ML модель на основе спарсенных данных пользователей соц. сети VK
 
 ### Сервисы
