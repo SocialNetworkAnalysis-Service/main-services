@@ -15,6 +15,9 @@
  - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
  - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot https://disk.yandex.ru/d/RK0LQJh4r1GQFQ
 
+### Github репозитории дополнительные
+https://github.com/SocialNetworkAnalysis-Service/vk-parser-draft
+
 ### Прицип работы сервиса
 - Сайт https://dayanadesign.ru
 - Аутентификая/Регистрация по номеру телефона (flash call)
