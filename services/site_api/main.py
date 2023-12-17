@@ -67,7 +67,7 @@ async def main():
 
     # app.dependency_overrides[nats_jetstream_stub] = GetNatsJetStream(js)
 
-    uvicorn_config = uvicorn.Config(app, host="0.0.0.0", port=8001, log_level="info")
+    uvicorn_config = uvicorn.Config(app, host="0.0.0.0", port=8000, log_level="info")
     server = uvicorn.Server(uvicorn_config)
 
     await server.serve()
