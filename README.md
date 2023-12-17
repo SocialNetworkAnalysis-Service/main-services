@@ -16,16 +16,31 @@
  - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot
 
 ### Прицип работы сервиса
+- Сайт https://dayanadesign.ru
 - Аутентификая/Регистрация по номеру телефона (flash call)
-- Профиль пользователя
+- Профиль пользователя https://dayanadesign.ru/profile.html
 - Выстраивание карьерного пути на основе информации VK страницы пользователя (парсинг данных)
-- Тестирование для определения приверженности к определенным типам профессиий
+- Тестирование в виде игры для определения приверженности к определенным типам профессиий https://dayanadesign.ru/profile.html
 
 ### Спарсенные данные
+Характеристики пользователей ВК подписанные на сообщества определенной профессии
+https://github.com/SocialNetworkAnalysis-Service/vk-parser-draft/tree/main/parsed_data
 
 
+### Запущенные сервисы на данный момент
+ - Сайт https://dayanadesign.ru
+ - API http://88.210.3.130:8000/docs
+   логин: user
+   пароль: password
 
+ - AdminPanel http://88.210.3.130:777/admin
+   логин: user
+   пароль: password
 
+ - Chat-Bot (телеграм бот для консультации по карьерному росту) https://t.me/Career_assistant_bot
+ - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot
+
+   
 ### Дерево проекта
 ```main-services/
 ├── docker-compose.yaml
@@ -97,12 +112,46 @@
 
 
 ### Запуск API, Admin_Panel, ChatBot (карьерный бот) на локалке
+- Нужно создат файл с конфигом services/admin_panel/src/.env
+```# Admin panel secrets
+FLASK_ADMIN_SWATCH=cosmo
+BASIC_AUTH_USERNAME=user
+BASIC_AUTH_PASSWORD=password
+BASIC_AUTH_FORCE=True
+
+# Database secrets
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=social_network
+DB_USER=postgres
+DB_PASSWORD=fWBuv1
+```
+
+- Нужно создат файл с конфигом services/site_api/src/.env
+```
+# Database secrets
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=social_network
+DB_USER=postgres
+DB_PASSWORD=fWBuv1
+
+
+## SMS agent secrets
+SMS_AGENT_LOGIN=sayraxfc
+SMS_AGENT_PASSWORD=7RECj7MJ
+SMS_AGENT_API_URL=https://api3.sms-agent.ru/v2.0/json/send/
+
+
+
+## Nats
+NATS_SERVER_URL=nats://nats:4222
+``` 
 ```bash
 git clone https://github.com/SocialNetworkAnalysis-Service/main-services.git
 cd main-services/
 docker-compose up -d
 ```
 <img width="1002" alt="image" src="https://github.com/SocialNetworkAnalysis-Service/main-services/assets/65904112/112ae62b-d4fd-47f3-9879-3fbe12db6d48">
-
 
 
