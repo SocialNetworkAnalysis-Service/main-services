@@ -16,8 +16,8 @@
  - MonitoringServerBot (телеграм бот для мониторинга сервера) https://t.me/dayanadesign_inline_bot https://disk.yandex.ru/d/RK0LQJh4r1GQFQ
 
 ### Github репозитории дополнительные
-https://github.com/SocialNetworkAnalysis-Service/vk-parser-draft
-https://github.com/SocialNetworkAnalysis-Service/ml-model-draft
+ - https://github.com/SocialNetworkAnalysis-Service/vk-parser-draft
+ - https://github.com/SocialNetworkAnalysis-Service/ml-model-draft
 ### Прицип работы сервиса
 - Сайт https://dayanadesign.ru
 - Аутентификая/Регистрация по номеру телефона (flash call)
