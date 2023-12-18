@@ -17,7 +17,7 @@
 
 ### Github репозитории дополнительные
 https://github.com/SocialNetworkAnalysis-Service/vk-parser-draft
-
+https://github.com/SocialNetworkAnalysis-Service/ml-model-draft
 ### Прицип работы сервиса
 - Сайт https://dayanadesign.ru
 - Аутентификая/Регистрация по номеру телефона (flash call)
